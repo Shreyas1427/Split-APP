@@ -96,7 +96,7 @@ You can import it into Postman or run requests via [Postman Web](https://web.pos
 
 ---
 
-## 🧾 API Endpoints
+## 📬 API Documentation
 
 | Method | Endpoint                           | Description              |
 |--------|------------------------------------|--------------------------|
@@ -107,6 +107,29 @@ You can import it into Postman or run requests via [Postman Web](https://web.pos
 | GET    | `/api/v1/analytics/monthly-summary`     | Monthly totals     |
 | GET    | `/api/v1/analytics/individual-vs-group` | Group vs individual |
 | GET    | `/api/v1/analytics/top-expenses`        | Top expenses & categories |
+
+---
+
+## 🧾 Settlement Calculation Logic
+
+The app calculates balances based on how much each user paid vs how much they owe:
+
+1. **Equal Split**:
+   - The expense is divided equally among all `shared_with` users.
+   - The `paid_by` user is credited the full amount.
+
+2. **Percentage Split**:
+   - Each person’s share is calculated using the `split_values` object containing percentages.
+   - Must sum to 100%.
+
+3. **Exact Split**:
+   - `split_values` contains exact amounts per person.
+   - Must sum to the total expense.
+
+Balances are aggregated and debts are simplified:
+- Users with positive balances are creditors.
+- Users with negative balances are debtors.
+- Debtors are matched to creditors in order of amount to minimize total transactions.
 
 ---
 
@@ -129,6 +152,15 @@ You can import it into Postman or run requests via [Postman Web](https://web.pos
 
 ---
 
+## ⚠️ Known Limitations / Assumptions
+
+- No user authentication yet (anyone can submit names)
+- `split_type` assumes valid data format; no strict schema enforcement on frontend
+- Settlement logic minimizes transactions but doesn't optimize for fairness
+- Categories are optional and not validated against a fixed set
+- Real-time updates are not yet supported
+
+---
 ## ✨ Contributions
 
 - Clean, commented code
