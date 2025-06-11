@@ -73,6 +73,15 @@ Visit: [http://localhost:3000](http://localhost:3000)
 
 ---
 
+
+### 📬 Postman Collection
+
+Test the live API via [this Postman collection](https://gist.github.com/Shreyas1427/b94b798c1222d85264168e12d13172ef)
+
+You can import it into Postman or run requests via [Postman Web](https://web.postman.co).
+
+
+
 ## 🧠 Features
 
 ### 📋 Core Functionality
