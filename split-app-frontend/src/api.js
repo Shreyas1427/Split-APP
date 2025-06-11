@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://split-app-backend.onrender.com/api/v1',  // Add /api prefix here
+  baseURL: 'https://split-app-i4rr.onrender.com/api/v1',  // Add /api prefix here
   headers: {
     'Content-Type': 'application/json'
   }
