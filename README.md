@@ -15,8 +15,8 @@ A full-stack expense splitting web app inspired by Splitwise. Easily track share
 
 ## 🚀 Live Demo
 
-- **Frontend:** [https://split-app-frontend.onrender.com](https://split-app-frontend.onrender.com)
-- **Backend API:** [https://split-app-backend.onrender.com](https://split-app-backend.onrender.com)
+- **Frontend:** [https://split-app-frontend.onrender.com](https://split-app-1.onrender.com/)
+- **Backend API:** [https://split-app-backend.onrender.com](https://split-app-i4rr.onrender.com)
 
 ---
 
@@ -69,7 +69,7 @@ echo "VITE_API_URL=http://localhost:3000" > .env
 npm run dev  # or npm start for CRA
 ```
 
-Visit: [http://localhost:5173](http://localhost:5173) (Vite) or [http://localhost:3000](http://localhost:3000)
+Visit: [http://localhost:3000](http://localhost:3000)
 
 ---
 
