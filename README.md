@@ -1,27 +1,135 @@
+# 🧾 Split App
 
-# Split App Backend
+A full-stack expense splitting web app inspired by Splitwise. Easily track shared expenses, settle balances, and visualize analytics like monthly summaries and top categories.
 
-A backend system to fairly split expenses among groups, calculate balances, and minimize transactions.
+---
 
-## Features
-- Add/view/edit/delete expenses
-- Auto person tracking
-- Settlement and balance computation
-- Clear APIs with error handling
+## 📦 Tech Stack
 
-## Tech Stack
-- Node.js, Express
-- MongoDB Atlas
-- Railway for deployment
-- Postman for testing
+- **Frontend:** React (CRA), Axios
+- **Backend:** Node.js, Express
+- **Database:** MongoDB Atlas
+- **Deployment:** Render.com (Frontend & Backend)
 
-## API Documentation
-- `/expenses` (CRUD)
-- `/settlements`, `/balances`, `/people`
+---
 
-## Getting Started
+## 🚀 Live Demo
+
+- **Frontend:** [https://split-app-frontend.onrender.com](https://split-app-frontend.onrender.com)
+- **Backend API:** [https://split-app-backend.onrender.com](https://split-app-backend.onrender.com)
+
+---
+
+## 📂 Project Structure
+
+```
+/split-app/
+├── split-app-frontend/     # React App
+└── split-app-backend/      # Express API
+```
+
+---
+
+## 🧑‍💻 Local Development Setup
+
+### 1. Clone the Repos
+
 ```bash
-git clone https://github.com/your-username/split-app
-cd split-app
+git clone https://github.com/your-username/split-app-backend.git
+git clone https://github.com/your-username/split-app-frontend.git
+```
+
+---
+
+### 2. Backend Setup
+
+```bash
+cd split-app-backend
 npm install
+
+# Create .env file:
+echo "MONGO_URI=<your_mongodb_uri>\nPORT=3000" > .env
+
 npm start
+```
+
+Test: [http://localhost:3000/api/v1/expenses/list](http://localhost:3000/api/v1/expenses/list)
+
+---
+
+### 3. Frontend Setup
+
+```bash
+cd ../split-app-frontend
+npm install
+
+# If using Vite:
+echo "VITE_API_URL=http://localhost:3000" > .env
+
+npm run dev  # or npm start for CRA
+```
+
+Visit: [http://localhost:5173](http://localhost:5173) (Vite) or [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 🧠 Features
+
+### 📋 Core Functionality
+- Add, list, update, delete expenses
+- Equal, percentage, or exact splits
+- Auto balance calculation & settlements
+
+### 📊 Analytics Dashboard
+- Monthly spending summaries
+- Individual vs group spending
+- Top transactions & category totals
+
+---
+
+## 🧾 API Endpoints
+
+| Method | Endpoint                           | Description              |
+|--------|------------------------------------|--------------------------|
+| GET    | `/api/v1/expenses/list`           | List all expenses        |
+| POST   | `/api/v1/expenses/create`         | Add new expense          |
+| PUT    | `/api/v1/expenses/update/:id`     | Update expense by ID     |
+| DELETE | `/api/v1/expenses/remove/:id`     | Delete expense by ID     |
+| GET    | `/api/v1/analytics/monthly-summary`     | Monthly totals     |
+| GET    | `/api/v1/analytics/individual-vs-group` | Group vs individual |
+| GET    | `/api/v1/analytics/top-expenses`        | Top expenses & categories |
+
+---
+
+## 🗃️ Database Schema (MongoDB)
+
+### Collection: `expenses`
+```json
+{
+  "amount": Number,
+  "description": String,
+  "category": String,
+  "paid_by": String,
+  "shared_with": [String],
+  "split_type": "equal" | "percentage" | "exact",
+  "split_values": { person: Number },
+  "createdAt": Date,
+  "updatedAt": Date
+}
+```
+
+---
+
+## ✨ Contributions
+
+- Clean, commented code
+- Modular file structure
+- Easily extendable with auth, notifications, or mobile view
+
+PRs welcome! 💬
+
+---
+
+## 📄 License
+
+[MIT](LICENSE)
